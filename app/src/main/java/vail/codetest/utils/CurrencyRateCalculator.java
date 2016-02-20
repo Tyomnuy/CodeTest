@@ -9,9 +9,9 @@ import java.util.List;
 import vail.codetest.data.model.Rate;
 
 /**
- * Created by
+ * Utility that helps to find currency rate using breadth-first search with caching already processed path of tree.
  *
- * @author Evgen Marinin <ievgen.marinin@alterplay.com>
+ * @author Evgen Marinin <imilin@yandex.ru>
  * @since 20.02.16.
  */
 public class CurrencyRateCalculator {
@@ -28,6 +28,14 @@ public class CurrencyRateCalculator {
         this.rateList = rateList;
 
         initRateTable();
+    }
+
+    public float getGRBAmount(String currency, float amount) {
+        if (TextUtils.isEmpty(currency)) return 0;
+
+        float rate = getRateExchange(currency);
+
+        return amount * rate;
     }
 
     private void initRateTable() {
@@ -59,14 +67,6 @@ public class CurrencyRateCalculator {
         if (!currencyList.contains(currency)) {
             currencyList.add(currency);
         }
-    }
-
-    public float getGRBAmount(String currency, float amount) {
-        if (TextUtils.isEmpty(currency)) return 0;
-
-        float rate = getRateExchange(currency);
-
-        return amount * rate;
     }
 
     private float getRateExchange(String currency) {
@@ -114,6 +114,9 @@ public class CurrencyRateCalculator {
         return rateExchange;
     }
 
+    /**
+     * Helper class to restore path
+     */
     private static class RateWrapper {
         Rate current;
         RateWrapper parent;

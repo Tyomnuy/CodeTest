@@ -23,7 +23,7 @@ import vail.codetest.data.model.Product;
 /**
  * Created by
  *
- * @author Evgen Marinin <ievgen.marinin@alterplay.com>
+ * @author Evgen Marinin <imilin@yandex.ru>
  * @since 20.02.16.
  */
 public class TransactionActivity extends AppCompatActivity {

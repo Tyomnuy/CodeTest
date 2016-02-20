@@ -14,7 +14,7 @@ import vail.codetest.utils.CurrencyRateCalculator;
 import static org.junit.Assert.*;
 
 /**
- * Robolectric used because of dependencies to android sdk like TextUtils
+ * Robolectric is used because of dependencies to android sdk like TextUtils
  */
 @RunWith(RobolectricGradleTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = 21)
