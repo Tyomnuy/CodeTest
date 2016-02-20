@@ -69,6 +69,11 @@ public class CurrencyRateCalculator {
         }
     }
 
+    /**
+     * breadth-first search
+     * @param currency
+     * @return
+     */
     private float getRateExchange(String currency) {
         if (GBP.equals(currency)) return 1;
 
@@ -99,6 +104,12 @@ public class CurrencyRateCalculator {
         return 0;
     }
 
+    /**
+     * calculate currency rate using backward path. Caching rate values for items.
+     * @param rateWrapper
+     * @param rate
+     * @return
+     */
     private float calculateRate(RateWrapper rateWrapper, Rate rate) {
         float rateExchange = rate.getRateToGBP();
         if (rateExchange == 0) {

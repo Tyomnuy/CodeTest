@@ -12,7 +12,8 @@ import vail.codetest.data.model.Transaction;
 import vail.codetest.utils.CurrencyRateCalculator;
 
 /**
- * Created by
+ * Using static storage helps avoid useless serialization of big data during transferring from Activities.
+ * And increase rate calculation by caching data.
  *
  * @author Evgen Marinin <ievgen.marinin@alterplay.com>
  * @since 20.02.16.
@@ -21,7 +22,6 @@ public class DataHelper {
 
     private static final DataHelper INSTANCE = new DataHelper();
 
-    private List<Rate> rateList;
     private List<Transaction> transactionList;
     private Map<String, Product> productMap;
 
@@ -37,7 +37,6 @@ public class DataHelper {
         }
 
         this.calculator = new CurrencyRateCalculator(rateList);
-        this.rateList = rateList;
     }
 
     public void setTransactions(List<Transaction> transactionList) {
