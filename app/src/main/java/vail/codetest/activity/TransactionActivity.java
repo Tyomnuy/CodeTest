@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -102,12 +103,17 @@ public class TransactionActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Product product) {
+            progressBar.setVisibility(View.GONE);
+            if (product == null) {
+                Toast.makeText(TransactionActivity.this, "Error loading data", Toast.LENGTH_LONG).show();
+                return;
+            }
+
             productItem = product;
             adapter.addItems(productItem.getTransactions());
-            //TODO
+
             String totalString = getString(R.string.total) + product.getTotalAmountGBP();
             totalTv.setText(totalString);
-            progressBar.setVisibility(View.GONE);
         }
     }
 }

@@ -66,6 +66,8 @@ public class DataHelper {
     }
 
     public Product loadProduct(String id) {
+        if (productMap == null) return null;
+
         Product product = productMap.get(id);
         if (!product.isCalculated()) {
             float totalAmountGBP = 0;
