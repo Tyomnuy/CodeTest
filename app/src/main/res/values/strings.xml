@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CodeTest</string>
+    <string name="products_label">Products</string>
+    <string name="transition_label">"Transitions for "</string>
+
+    <string name="total">"Total: GBP "</string>
+
+    <string name="single_transaction">" transaction"</string>
+    <string name="transactions">" transactions"</string>
+    <string name="gbp">GBP</string>
+</resources>
